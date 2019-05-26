@@ -64,30 +64,39 @@ console.log(x);
 
 */
 
-/*******************************************
- * FIRST CODING CHALLENGE 1
- */
+
+/*****************************
+ *  CODING CHALLENGE 1
+var johnMass = 92;
+var johnHeight = 1.95;
+
+var markMass = 78;
+var markHeight = 1.69;
+
+var johnBMI = johnMass / (johnHeight * johnHeight);
+var markBMI = markMass / (markHeight * markHeight);
+
+var markHigher = markBMI > johnBMI;
+console.log(`Mark BMI is higher than John BMI with ${markBMI}? ${markHigher}.`);
+*/
 
 /*
-// 1. Store mass and height in variables
-var markMass, markHeight, jonhMass, jonhHeight;
+var johnMass = 92;
+var johnHeight = 1.95;
 
-markMass = 85;
-markHeight = 1.7;
-jonhMass = 78;
-jonhHeight = 1.8;
+var markMass = 78;
+var markHeight = 1.69;
 
-// 2. Calculate both their BMIs
+var johnBMI = johnMass / (johnHeight * johnHeight);
 var markBMI = markMass / (markHeight * markHeight);
-var jonhBMI = jonhMass / (jonhHeight * jonhHeight);
 
-// 3. Create a boolean variable about 'mark has a higher BMI than john'
-var compareBMI = markBMI >= jonhBMI;
+if(johnBMI > markBMI) {
+    console.log(`John's BMI is highter than Mark's`);
+}else {
+    console.log(`Mark's BMI it higher than John's`);
+}
 
-//4. Print a string!
-console.log(`Is mark's BMI higher than jonh's? ${compareBMI}!`);
-console.log(`So, what's mark's and jonh's BMI? Mark's BMI : ${markBMI}, Jonh's BMI : ${jonhBMI}`);
-*********************************************/
+*/
 
 
 /*
@@ -105,68 +114,80 @@ if (age < 13) {
 }
 */
 
+/*****************************
+* The Ternary Operator and Switch Statements
 
-/********************************
- * The Ternary Operator and Switch Statements
+var firstName = "Robin";
+var age = 24;
 
-
-var firstName = "jonh";
-var age = 16;
-
-age >= 18? console.log(firstName + " drinks beer.") : console.log(firstName + " drinks juice.");
+age >= 18 ? console.log(`${firstName} can drinks beer`) : console.log(`${firstName} have to drink juice`);
 
 var drink = age >= 18 ? "beer" : "juice";
 console.log(drink);
 
 
 
-var job = "teacher";
-switch (job) {
+
+var job = "designer";
+switch(job) {
     case "teacher" :
-        console.log(firstName + " teaches kids how to code.");
-        break; 
-    case "designer" :
-        console.log(firstName + " designs beautiful websites.");
+        console.log(firstName + ' teaches math to kids.');
         break;
-    case "driver" :
-        console.log(firstName + " drives an uber in Lisbon.");
+    case "designer" :
+        console.log(firstName + ' makes world better!');
+        break;
+    case "developer" :
+        console.log(firstName + ' creates many efficient things.');
         break;
     default :
-        console.log(firstName + " does something else.");
+        console.log(firstName + ' dose something else.');
 }
 
- */
+age = 23;
+switch(true) {
+    case age < 13 :
+        console.log(firstName + ' is a elementry school student');
+        break;
+    case age >= 13 && age < 20 :
+        console.log(firstName + ' is a young human.');
+        break;
+    case age >= 20 :
+        console.log(firstName + ' can drink beer again!');
+        break;
+    default :
+        console.log(firstName + ' is a human.');
+}
 
+*/
 
+/*
 
-/***************************************
- * second challenge!
+var johnScore = [89, 120, 103];
+var mikeScore = [116, 94, 123];
+var maryScore = [97, 134, 105];
 
-var scoreJohn = (189 + 120 + 103) / 3;
-var scoreMike = (119 + 94 + 123) / 3;
-var scoreMary = (97 + 134 + 105) / 3;
-console.log(scoreJohn, scoreMike, scoreMary);
+function calcAverage(score) {
+    (score[0] + score[1] + score[2]) / 3;
+}
 
-if (scoreJohn > scoreMike && scoreJohn > scoreMary) {
-    console.log(`Jonh's team wins with ${scoreJohn} point`);
-} else if(scoreMike > scoreJohn && scoreMike > scoreMary) {
-    console.log(`Mike's team wins with ${scoreMike} point`);
-} else if(scoreMary > scoreJohn && scoreMary > scoreMike) {
-    console.log(`Mary's team wins with ${scoreMary} point`);
+johnAverage = calcAverage(johnScore);
+markAverage = calcAverage(mikeScore);
+maryAverage = calcAverage(maryScore);
+
+console.log(johnAverage, markAverage, maryAverage);
+
+if(johnAverage > markAverage && johnAverage > maryAverage) {
+    console.log(`John's is the winner with ${johnAverage}`);
+} else if(markAverage > johnAverage && markAverage > maryAverage) {
+    console.log(`Mark's is the winner with ${markAverage}`);
+} else if(maryAverage > markAverage && maryAverage > johnAverage) {
+    console.log(`Mary's is the winner with ${maryAverage}`);
 } else {
-    console.log(`There is a draw`);
+    console.log(`There're draws.`);
 }
 
 
-if (scoreJohn > scoreMike) {
-    console.log(`Jonh's team wins with ${scoreJohn} point`);
-} else if(scoreMike > scoreJohn) {
-    console.log(`Mike's team wins with ${scoreMike} point`);
-} else {
-    console.log(`There is a draw`);
-}
-****************************************/
-
+*/
 
 
 
@@ -244,40 +265,142 @@ console.log(Robin);
 */
 
 
-/*****************************************
- * CODING CHALLENGE 4!
+/*******************************************
+ * THIRD CODING CHALLENGE!
+ * 
+var bills = [124, 48, 268];
 
-var Mark = {
-    fullName: "mark miller",
-    mass: 78,
-    height: 1.69,
-    calcBMI: function() {
-        this.bmi = this.mass / (this.height * this.height);
-        return this.bmi;
+function calcTips(bill) {
+    var percent;
+    if(bill < 50) {
+        percent = .2;
+    } else if(bill >= 50 && bill < 200) {
+        percent = .15;
+    } else {
+        percent = .1;
     }
-};
-
-var John = {
-    fullName: "john smith",
-    mass: 110,
-    height: 1.95,
-    calcBMI: function() {
-        this.bmi = this.mass / (this.height * this.height);
-        return this.bmi;
-    }
-};
-
-
-
-
-if(John.calcBMI() > Mark.calcBMI()) {
-    console.log(John.fullName + ' has a higher BMI of ' + John.bmi);
-} else if (John.bmi < Mark.bmi){
-    console.log(Mark.fullName + ' has a higher BMI of ' + Mark.bmi);
-} else {
-    console.log('they have the same BMI');
+    return bill * percent;
 }
-*******************************************/
+
+tips = [calcTips(bills[0]),
+        calcTips(bills[1]),
+        calcTips(bills[2])];
+
+totalBills = [bills[0]+tips[0],
+            bills[1]+tips[1],
+            bills[2]+tips[2],];
+
+console.log(bills, tips, totalBills);
+*/
+
+/*
+var john = ['John', 'Smith', 1990, 'designer', false];
+
+john.push('blue');
+john.unshift('Mr.');
+console.log(john);
+
+john.pop();
+john.pop();
+john.shift();
+console.log(john);
+
+console.log(typeof john[0]);
+
+console.log(john.indexOf('designer'));
+*/
+
+/*************************************
+ * CODING CHALLENGE 3!
+ 
+
+var bills = [124, 48, 268];
+
+function calcTips(bill) {
+    var percent;
+    if(bill < 50) {
+        percent = .2;
+    } else if(bill >= 50 && bill < 200) {
+        percent = .15;
+    } else {
+        percent = .1;
+    }
+    return bill * percent;
+}
+
+var tips = [calcTips(bills[0]),
+            calcTips(bills[1]),
+            calcTips(bills[2])];
+var finalBills = [tips[0] + bills[0],
+                    tips[1] + bills[1],
+                    tips[2] + bills[2]];
+
+console.log(tips, finalBills);
+
+
+*************************/
+
+/*
+var robin = new Object();
+robin.firstName = "Robin";
+robin.lastName = "An";
+robin.age = 23;
+robin["job"] = "developer";
+
+console.log(robin["lastName"]);
+
+var john = {
+    firstName: "John",
+    lastName: "Smith",
+    birthYear: 1992,
+    family: ["Jane", "Mark", "Bob", "Emily"],
+    job: "teacher",
+    calcAge: function() {
+        this.age = 2019 - this.birthYear;
+    }
+};
+
+john.calcAge();
+console.log(john);
+*/
+
+
+/*************************************
+ * CODING CHALLENGE 4!
+ * 
+var john = {
+    fullName: "John Smith",
+    mass: 67,
+    height: 1.7,
+    calcBmi : function() {
+        this.BMI = this.mass / (this.height * this.height);
+    }
+}
+
+var mark = {
+    fullName: "Mark Smith",
+    mass: 76,
+    height: 1.8,
+    calcBmi : function() {
+        this.BMI = this.mass / (this.height * this.height);
+        return this.BMI;
+    }
+}
+
+
+
+if(john.calcBmi() > mark.calcBmi()) {
+    console.log(`${john.fullName} has the highest BMI with ${john.BMI}`);
+} else if(john.BMI < mark.BMI) {
+    console.log(`${mark.fullName} has the highest BMI with ${mark.BMI}`);
+} else {
+    console.log(`They have same BMI! :)`);
+}
+
+************************************/
+
+
+
 
 //LOOPS AND ITERATION
 /*********************************************
@@ -336,7 +459,7 @@ for (var i = john.length - 1; i >= 0; i--) {
  ************************************************/
 
 
-
+/*******
 
 var john = {
     fullName: "john smith",
@@ -408,7 +531,7 @@ if(john.average > mark.average) {
   
   
   
-  
+   */
   
   
   
